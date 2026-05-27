@@ -1,6 +1,6 @@
 # Mars Rover System Model - Software Engineering HW3
 
-I have built a fully functional object-oriented Python implementation of the Mars Rover system. The architecture is mapped directly from the team's conceptual UML class diagram, and its execution flow faithfully recreates the transitions of the state diagram and the interaction steps of the sequence diagrams.
+A fully functional object-oriented Python implementation of the Mars Rover system. The architecture is mapped directly from the team's conceptual UML class diagram, and its execution flow faithfully recreates the transitions of the state diagram and the interaction steps of the sequence diagrams.
 
 ## Project Structure
 
@@ -25,7 +25,7 @@ HW3/
 ## System Requirements
 
 - **Runtime**: Python 3.8 or higher.
-- **Dependencies**: None. I developed this model using only Python's standard library to ensure full portability and rapid execution.
+- **Dependencies**: None. Model developed using only Python's standard library.
 
 ## Execution Instructions
 

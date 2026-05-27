@@ -10,11 +10,10 @@ from rover.sensors import Sensors
 def main():
     print("=================================================================")
     print("                MARS ROVER AUTONOMOUS MODEL                      ")
-    print("                Software Engineering HW3 Model                   ")
+    print("         Software Engineering HW3 Model Reitinger                 ")
     print("=================================================================")
     
-    # I will instantiate all components of the Mars Rover system
-    # as described in the UML class diagram.
+    
     state_machine = StateMachine()
     
     antenna = TxRx()

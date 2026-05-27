@@ -17,9 +17,12 @@ In this document, I present my personal reflection on the modeling and collabora
 
 ## Feedback on Presentations of Other Teams
 
-### Positive Observations
-- **Clear Sequence Diagrams**: One of the teams presented a highly structured sequence diagram for their communication unit that clearly separated synchronous acknowledgments from asynchronous replies. I found their notation very clear and decided to use a similar clean separation in my python simulation flow.
+### Our Feedback to the other Teams
+- **Clear Sequence Diagrams**: One of the teams presented a highly structured sequence diagram for their system that clearly separated synchronous acknowledgments from asynchronous replies. I found their notation very clear and decided to use a similar clean separation in my python simulation flow.
 - **Robust Exception States**: Another team spent considerable time designing exception transitions within their state machine (e.g., what happens if a self-diagnosis fail is encountered mid-mission). This was an excellent addition that reminded me to build explicit error transitions into my class structures.
+- **Overly Coupled Architectures**: Some presentations showed class diagrams where every single class had a direct association to every other class. I felt this created tight coupling that would make maintaining or testing the code very difficult in a real programming environment.
+- **Underspecified Interfaces**: A few teams presented methods on their diagrams without specifying input parameters or return types. During the implementation phase, this leaves too much ambiguity. I paid extra attention to clearly defining my python method interfaces to avoid this issue.
 
-### Critique and Areas for Improvement
-- **Missing Diagnostic Helper Methods**: One of the critiques received on my presentation was that our class diagram was slightly underspecified regarding diagnostic coordination, as it lacked helper methods to verify the communication paths of individual sub-systems (such as explicitly connecting to and querying actuators, PMU, and sensors). To address this feedback in the implementation, I added minor internal check methods (like `connect_move` and `ask_move`) inside the respective components. This allowed me to execute the full sequence diagram diagnostic routines cleanly without altering the core class structures or introducing unrelated APIs.
+### Feedback Received From Other Teams on Our Presentation
+
+- **Missing Diagnostic Helper Methods**: One of the critiques received on our presentation was that our class diagram was slightly underspecified regarding diagnostic coordination, as it lacked helper methods to verify the communication paths of individual sub-systems (such as explicitly connecting to and querying actuators, PMU, and sensors). To address this feedback in the implementation, I added minor internal check methods (like `connect_move` and `ask_move`) inside the respective components. This allowed me to execute the full sequence diagram diagnostic routines cleanly without altering the core class structures or introducing unrelated APIs.
