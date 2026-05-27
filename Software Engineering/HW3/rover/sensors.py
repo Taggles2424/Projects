@@ -39,14 +39,14 @@ class TemperatureSensor:
     """
     def __init__(self, parent_sensors):
         self.parent = parent_sensors
+        self.value = -55.4 # Default temperature in degrees C
 
     def read_temperature(self) -> float:
         """
         Returns temperature in degrees Celsius.
         """
-        temp = -55.4 # degrees C (average cold on Mars)
-        self.parent.report_sensor_status("Temperature", f"{temp} C")
-        return temp
+        self.parent.report_sensor_status("Temperature", f"{self.value} C")
+        return self.value
 
 
 class WindSensor:
@@ -56,14 +56,14 @@ class WindSensor:
     """
     def __init__(self, parent_sensors):
         self.parent = parent_sensors
+        self.value = 7.2 # Default wind speed in m/s
 
     def read_wind_speed(self) -> float:
         """
         Returns wind speed in meters per second.
         """
-        wind = 7.2 # m/s
-        self.parent.report_sensor_status("Wind", f"{wind} m/s")
-        return wind
+        self.parent.report_sensor_status("Wind", f"{self.value} m/s")
+        return self.value
 
 
 class PressureSensor:
@@ -73,14 +73,14 @@ class PressureSensor:
     """
     def __init__(self, parent_sensors):
         self.parent = parent_sensors
+        self.value = 6.1 # Default pressure in hPa
 
     def read_pressure(self) -> float:
         """
         Returns atmospheric pressure in hPa.
         """
-        pressure = 6.1 # hPa (Mars thin atmosphere)
-        self.parent.report_sensor_status("Pressure", f"{pressure} hPa")
-        return pressure
+        self.parent.report_sensor_status("Pressure", f"{self.value} hPa")
+        return self.value
 
 
 class Sensors:
@@ -146,9 +146,9 @@ class Sensors:
         Reports sensor data to Control. Matches 'report failure/data' arrow.
         """
         data = {
-            "temperature": -55.4,
-            "wind": 7.2,
-            "pressure": 6.1
+            "temperature": self.temperature.read_temperature(),
+            "wind": self.wind.read_wind_speed(),
+            "pressure": self.pressure.read_pressure()
         }
         print(f" [Sensors] Reporting telemetry dataset to Control Unit: {data}")
         return data
@@ -159,8 +159,8 @@ class Sensors:
         """
         print(" [Sensors] Initiating condition report transfer to Science Lab...")
         data = {
-            "temperature": -55.4,
-            "wind": 7.2,
-            "pressure": 6.1
+            "temperature": self.temperature.read_temperature(),
+            "wind": self.wind.read_wind_speed(),
+            "pressure": self.pressure.read_pressure()
         }
         self.lab.report_conditions(data)
