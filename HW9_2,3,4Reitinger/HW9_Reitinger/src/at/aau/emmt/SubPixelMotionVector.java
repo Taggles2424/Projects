@@ -29,8 +29,10 @@ public class SubPixelMotionVector {
          * Use this code if you want to see the result as image. You can also use the
          * test.png image for testing.
          */
-        int[][] r_frame = getLumincanceChannel("C:/Users/maxir/Desktop/Antigravity/HW9_Reitinger/image-0096.png");
-        int[][] t_frame = getLumincanceChannel("C:/Users/maxir/Desktop/Antigravity/HW9_Reitinger/image-0097.png");
+        int[][] r_frame = getLumincanceChannel(
+                "c:/Users/maxir/OneDrive/Desktop/Antigravity/HW9_2,3,4Reitinger/HW9_Reitinger/image-0096.png");
+        int[][] t_frame = getLumincanceChannel(
+                "c:/Users/maxir/OneDrive/Desktop/Antigravity/HW9_2,3,4Reitinger/HW9_Reitinger/image-0097.png");
 
         int[][] r_frame_sub = interpolateFrame(r_frame);
 
@@ -313,6 +315,7 @@ public class SubPixelMotionVector {
         for (int k = 0; k < blocksize; k++) {
             for (int l = 0; l < blocksize; l++) {
                 int cPx = tBlock[k][l];
+                // add subpixel precision to the row and column index
                 int rPx = rFrame[r_row + k * subPixelPrecision][r_col + l * subPixelPrecision];
                 mad += Math.abs(cPx - rPx);
 
