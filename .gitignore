@@ -21,3 +21,7 @@ out/
 *.webm
 *.mp4
 *.zip
+
+# Compiled Build Directories
+build/
+**/build/
